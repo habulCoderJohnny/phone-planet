@@ -1,5 +1,7 @@
+const spinner = document.getElementById('spinner'); //get spinner Id 
 //Search btn function
 const searchPhone = () => {
+  spinner.style.display = "block"; //loading spinner display Block;
     const phoneDetails = document.getElementById('phone-details');
     phoneDetails.innerHTML = '';
     const searchField = document.getElementById('search-phone');
@@ -17,6 +19,7 @@ const searchPhone = () => {
     SearchResult.textContent = ''; //← ← clear previous search result
     if (phones.length == '') {
       document.getElementById('message').style.display = 'block';
+      spinner.style.display = "none";
     }
       else {
         document.getElementById('message').style.display = 'none';
@@ -38,6 +41,7 @@ const searchPhone = () => {
         </div>
       </div> `;
       SearchResult.appendChild(div);
+      spinner.style.display = "none";
     })
   }
 }
@@ -63,20 +67,19 @@ const displayPhoneById = phone => {
   div.innerHTML = `
 <div class="card h-100 w-100 p-2">
     <img src="${phone.image}" class="card-img-top img-fluid w-25" alt="...">
- 
-<div class="card h-100 w-100 p-2 card-text fw-bolder text-primary">
+<div class="card-text fw-bolder text-primary">
    <div class="card-body card-text fw-bolder text-primary d-flex flex-column align-items-center container-sm">
     <p>Brand:${phone.brand}</p>
     <h5 class="card-title text-danger">Phone Name:${phone.name}</h5>
     <u>Release Date:${phone.releaseDate ? phone.releaseDate : 'Release Date Not Available!'}</u>
-    <p>Storage:${phone.mainFeatures.storage}</p>
+    <p>Storage:${phone.mainFeatures.storage}</p> 
     <p>Memory:${phone.mainFeatures.memory}</p>
     <p>Display:${phone.mainFeatures.displaySize}</p>
     <p>Chipset:${phone.mainFeatures.chipSet}</p>
     <p class="text-break">Sensor:${phone.mainFeatures.sensors}</p>
     <p class="text-break">WLAN:${phone.others.WLAN}</p>
-    <p class="text-break">Bluetooth:${phone.others.Bluetooth}</p>
     <p class="text-break">GPS:${phone.others.GPS}</p>
+    <p class="text-break">Bluetooth:${phone.others.Bluetooth}</p>
     <p class="text-break">NFC: ${phone.others.NFC} Radio: ${phone.others.Radio}</p>
     <p class="text-break">${phone.others.USB}</p>  
    </div>   
@@ -84,3 +87,12 @@ const displayPhoneById = phone => {
 phoneDetails.appendChild(div);
 }
 
+
+// Main Body Loading Spinner 
+document.onreadystatechange = function () {
+  if (document.readyState !== "complete") {
+    spinner.style.display = "block";
+  } else {
+    spinner.style.display = "none";
+  }
+};
