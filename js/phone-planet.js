@@ -22,7 +22,7 @@ const searchPhone = () => {
         document.getElementById('message').style.display = 'none';
         if (phones.length >= 20 || phones.length < 20) {
           SearchResult.innerHTML = '';
-          const part = phones.slice(0, 20);
+          const part = phones.slice(0, 20); // only 20 item display
           part?.forEach(phone => {
           const div = document.createElement('div');
        div.classList.add('col');
@@ -61,25 +61,25 @@ const displayPhoneById = phone => {
   const div = document.createElement('div');
   div.classList.add('card');
   div.innerHTML = `
-  <div class="card h-100 w-100 p-2 ">
-  <img src="${phone.image}" class="card-img-top img-fluid w-25" alt="...">
-  
-  <div class="card-body d-flex flex-column align-items-center container-sm">
-    <p class="card-text fw-bolder text-primary">Brand:${phone.brand}</p>
-    <h5 class="card-title text-primary">Phone Name:${phone.name}</h5>
-    <u class="card-text fw-bolder text-primary">Release Date:${phone.releaseDate ? phone.releaseDate : 'Release Date Not Available!'}</u>
-    <p class="card-text fw-bolder text-primary">Storage:${phone.mainFeatures.storage}</p>
-    <p class="card-text fw-bolder text-primary">Memory:${phone.mainFeatures.memory}</p>
-    <p class="card-text fw-bolder text-primary">Display:${phone.mainFeatures.displaySize}</p>
-    <p class="card-text fw-bolder text-primary">Chipset:${phone.mainFeatures.chipSet}</p>
-    <p class="card-text text-break fw-bolder text-primary">Sensor:${phone.mainFeatures.sensors}
-    <p class="card-text text-break fw-bolder text-primary">WLAN:${phone.others.WLAN}
-    <p class="card-text text-break fw-bolder text-primary">Bluetooth:${phone.others.Bluetooth}
-    <p class="card-text text-break fw-bolder text-primary">GPS:${phone.others.GPS}
-    <p class="card-text text-break fw-bolder text-primary">NFC: ${phone.others.NFC} Radio: ${phone.others.Radio}
-    <p class="card-text text-break fw-bolder text-primary">${phone.others.USB}
-    
-  </div>   
+<div class="card h-100 w-100 p-2">
+    <img src="${phone.image}" class="card-img-top img-fluid w-25" alt="...">
+ 
+<div class="card h-100 w-100 p-2 card-text fw-bolder text-primary">
+   <div class="card-body card-text fw-bolder text-primary d-flex flex-column align-items-center container-sm">
+    <p>Brand:${phone.brand}</p>
+    <h5 class="card-title text-danger">Phone Name:${phone.name}</h5>
+    <u>Release Date:${phone.releaseDate ? phone.releaseDate : 'Release Date Not Available!'}</u>
+    <p>Storage:${phone.mainFeatures.storage}</p>
+    <p>Memory:${phone.mainFeatures.memory}</p>
+    <p>Display:${phone.mainFeatures.displaySize}</p>
+    <p>Chipset:${phone.mainFeatures.chipSet}</p>
+    <p class="text-break">Sensor:${phone.mainFeatures.sensors}</p>
+    <p class="text-break">WLAN:${phone.others.WLAN}</p>
+    <p class="text-break">Bluetooth:${phone.others.Bluetooth}</p>
+    <p class="text-break">GPS:${phone.others.GPS}</p>
+    <p class="text-break">NFC: ${phone.others.NFC} Radio: ${phone.others.Radio}</p>
+    <p class="text-break">${phone.others.USB}</p>  
+   </div>   
 </div>`;
 phoneDetails.appendChild(div);
 }
