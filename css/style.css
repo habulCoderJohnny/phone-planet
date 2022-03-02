@@ -1,0 +1,8 @@
+*{
+margin:auto;
+box-sizing: border-box;
+}
+h2 { font-family: "Helvetica";
+font-size: 25px; font-style:italic; font-variant:small-caps;  }
+span{font-family: "nasaliza";
+font-size: 40px; font-style:italic; font-variant:small-caps; color:rgb(253, 180, 44);}
