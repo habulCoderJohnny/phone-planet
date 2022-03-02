@@ -32,7 +32,7 @@ const searchPhone = () => {
         div.innerHTML =
         `
         <div class="card h-auto d-flex flex-column align-items-center ">
-        <img src="${phone.image}" class="card-img-top" alt="...">
+        <img src="${phone.image}" class="card-img-top w-50" alt="...">
         <div class="card-body d-flex flex-column align-items-start ">
           <h5 class="card-title text-primary">Phone Name: ${phone.phone_name}</h5>
           <p class="card-text fw-bolder text-primary">Brand: ${phone.brand}</p>
@@ -66,7 +66,7 @@ const displayPhoneById = phone => {
   div.classList.add('card');
   div.innerHTML = `
 <div class="card h-100 w-100 p-2">
-    <img src="${phone.image}" class="card-img-top img-fluid w-25" alt="...">
+    <img src="${phone.image}" class="card-img-top w-50" alt="...">
 <div class="card-text fw-bolder text-primary">
    <div class="card-body card-text fw-bolder text-primary d-flex flex-column align-items-center container-sm">
     <p>Brand: ${phone.brand}</p>
